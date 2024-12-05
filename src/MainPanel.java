@@ -82,7 +82,6 @@ public class MainPanel extends JPanel {
         }
     }
     public void set(int num) {
-
         decimal.setText(Integer.toString(num));
         binary.setText(Integer.toBinaryString(num));
         hexa.setText(Integer.toHexString(num));
@@ -91,19 +90,22 @@ public class MainPanel extends JPanel {
         int num;
         try {
             num = Integer.parseInt(decimal.getText());
-            set(num);
+            binary.setText(Integer.toBinaryString(num));
+            hexa.setText(Integer.toHexString(num));
         } catch (NumberFormatException e) {}
     }
     public void setFromBinary() {
         try {
             int num = Integer.parseInt(binary.getText(),2);
-            set(num);
+            decimal.setText(Integer.toString(num));
+            hexa.setText(Integer.toHexString(num));
         } catch (NumberFormatException e) {}
     }
     public void setFromHex() {
         try {
             int num = Integer.parseInt(hexa.getText(), 16);
-            set(num);
+            decimal.setText(Integer.toString(num));
+            binary.setText(Integer.toBinaryString(num));
         } catch (NumberFormatException e) {}
     }
 }
