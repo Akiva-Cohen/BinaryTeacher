@@ -31,5 +31,30 @@ public class MainPanel extends JPanel {
         add(labels);
         add(boxes);
         add(increments);
-    }   
+    }
+    public void set(int num) {
+
+        decimal.setText(Integer.toString(num));
+        binary.setText(Integer.toBinaryString(num));
+        hexa.setText(Integer.toHexString(num));
+    }
+    public void setFromInt() {
+        int num;
+        try {
+            num = Integer.parseInt(decimal.getText());
+            set(num);
+        } catch (NumberFormatException e) {}
+    }
+    public void setFromBinary() {
+        try {
+            int num = Integer.parseInt(binary.getText(),2);
+            set(num);
+        } catch (NumberFormatException e) {}
+    }
+    public void setFromHex() {
+        try {
+            int num = Integer.parseInt(hexa.getText(), 16);
+            set(num);
+        } catch (NumberFormatException e) {}
+    }
 }
