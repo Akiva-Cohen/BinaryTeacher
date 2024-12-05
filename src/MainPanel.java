@@ -9,10 +9,10 @@ public class MainPanel extends JPanel {
     JButton minus;
     JButton plus;
     public MainPanel() {
+        super(new GridLayout(3,1));
         binary = new JTextField();
         decimal = new JTextField();
         hexa = new JTextField();
-        super(new GridLayout(3,1));
         JPanel labels = new JPanel(new GridLayout(1,3));
         JLabel binaryLabel = new JLabel("Binary");
         JLabel decimalLabel = new JLabel("Decimal");
