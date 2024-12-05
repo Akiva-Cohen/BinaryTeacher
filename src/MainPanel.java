@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 public class MainPanel extends JPanel {
     JTextField binary;
     JTextField decimal;
@@ -34,6 +36,31 @@ public class MainPanel extends JPanel {
         add(labels);
         add(boxes);
         add(increments);
+        binary.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setFromBinary();
+            }
+        });
+        decimal.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setFromInt();
+            }
+        });
+        hexa.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setFromHex();
+            }
+        });
+        minus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                decrement();
+            }
+        });
+        plus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                increment();
+            }
+        });
     }
     public void increment() {
         try {
