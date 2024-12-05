@@ -1,4 +1,7 @@
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,18 +39,18 @@ public class MainPanel extends JPanel {
         add(labels);
         add(boxes);
         add(increments);
-        binary.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        binary.getDocument().addDocumentListener(new DocumentListened() {
+            public void thisUpdate() {
                 setFromBinary();
             }
         });
-        decimal.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        decimal.getDocument().addDocumentListener(new DocumentListened() {
+            public void thisUpdate() {
                 setFromInt();
             }
         });
-        hexa.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        hexa.getDocument().addDocumentListener(new DocumentListened() {
+            public void thisUpdate() {
                 setFromHex();
             }
         });
