@@ -19,6 +19,9 @@ public class MainPanel extends JPanel {
         labels.add(decimalLabel);
         labels.add(hexaLabel);
         JPanel boxes = new JPanel(new GridLayout(1,3));
+        binary.setText("0");
+        decimal.setText("0");
+        hexa.setText("0");
         boxes.add(binary);
         boxes.add(decimal);
         boxes.add(hexa);
@@ -31,6 +34,22 @@ public class MainPanel extends JPanel {
         add(labels);
         add(boxes);
         add(increments);
+    }
+    public void increment() {
+        try {
+            int num = Integer.parseInt(decimal.getText());
+            set(num + 1);
+        } catch (NumberFormatException e) {
+            set(0);
+        }
+    }
+    public void decrement() {
+        try {
+            int num = Integer.parseInt(decimal.getText());
+            set (num - 1);
+        } catch (NumberFormatException e) {
+            set(0);
+        }
     }
     public void set(int num) {
 
