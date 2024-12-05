@@ -11,6 +11,7 @@ public class MainPanel extends JPanel {
     JTextField hexa;
     JButton minus;
     JButton plus;
+    boolean listen = true;
     public MainPanel() {
         super(new GridLayout(3,1));
         binary = new JTextField();
@@ -41,17 +42,23 @@ public class MainPanel extends JPanel {
         add(increments);
         binary.getDocument().addDocumentListener(new DocumentListened() {
             public void thisUpdate() {
-                setFromBinary();
+                if (listen) {
+                    setFromBinary();
+                }
             }
         });
         decimal.getDocument().addDocumentListener(new DocumentListened() {
             public void thisUpdate() {
-                setFromInt();
+                if (listen) {
+                    setFromInt();
+                }
             }
         });
         hexa.getDocument().addDocumentListener(new DocumentListened() {
             public void thisUpdate() {
-                setFromHex();
+                if (listen) {
+                    setFromHex();
+                }
             }
         });
         minus.addActionListener(new ActionListener() {
@@ -82,30 +89,38 @@ public class MainPanel extends JPanel {
         }
     }
     public void set(int num) {
+        listen = false;
         decimal.setText(Integer.toString(num));
         binary.setText(Integer.toBinaryString(num));
         hexa.setText(Integer.toHexString(num));
+        listen = true;
     }
     public void setFromInt() {
+        listen = false;
         int num;
         try {
             num = Integer.parseInt(decimal.getText());
             binary.setText(Integer.toBinaryString(num));
             hexa.setText(Integer.toHexString(num));
         } catch (NumberFormatException e) {}
+        listen = true;
     }
     public void setFromBinary() {
+        listen = false;
         try {
             int num = Integer.parseInt(binary.getText(),2);
             decimal.setText(Integer.toString(num));
             hexa.setText(Integer.toHexString(num));
         } catch (NumberFormatException e) {}
+        listen = true;
     }
     public void setFromHex() {
+        listen = false;
         try {
             int num = Integer.parseInt(hexa.getText(), 16);
             decimal.setText(Integer.toString(num));
             binary.setText(Integer.toBinaryString(num));
         } catch (NumberFormatException e) {}
+        listen = true;
     }
 }
