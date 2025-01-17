@@ -3,3 +3,5 @@ Wouldnt it be nice if there were more people in the first category \n
 this project converts between binary, decimal, and hexadecimal automatically, and also lets you increment all 3 at once.
 
 demo at: binaryteacher.pages.dev
+
+the demo may or may not work on firefox
