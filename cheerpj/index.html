@@ -1,0 +1,18 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Binary Visualizer
+        </title>
+        <script src="https://cjrtnc.leaningtech.com/3.0/cj3loader.js"></script>
+    </head>
+    <body>
+        <script>
+            (async function () {
+                await cheerpjInit();
+                cheerpjCreateDisplay(window.innerWidth,window.innerHeight);
+                await cheerpjRunJar("/app/BinaryTeacher.jar")
+            })();
+        </script>
+    </body>
+</html>
